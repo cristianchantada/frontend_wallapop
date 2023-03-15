@@ -7,8 +7,9 @@ export function buildProductsView(productsList, productsSectionElement){
         productItemElement.innerHTML = `
         <p>${product.name}</p>
         <p>${product.description}</p>
-        <p><span>${product.prize}</span><span>${product.operation}</span></p>
+        <p><span>${product.prize}</span> €. <span>${product.operation}</span></p>
         <p>${product.image}</p>
+        <br>
         `;
 
         productsSectionElement.appendChild(productItemElement);

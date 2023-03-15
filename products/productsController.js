@@ -12,6 +12,6 @@ export async function products(productsSectionElement){
         alert(error);
     }
 
-    productsSectionElement.innerHTML =  buildProductsView(productsList, productsSectionElement);
+    buildProductsView(productsList, productsSectionElement);
 
 }
