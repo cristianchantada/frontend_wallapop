@@ -7,6 +7,33 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form id="create-product-form">
+
+        <label for="productTitle">Producto:</label>
+        <input type="text" id="productTitle" name="productTitle" required>
+        <br>
+
+        <p>Descripción del producto:</p>
+        <textarea name="product-description" id="product-description" cols="30" rows="10"></textarea>
+        <br>
+
+        <label for="prize">Precio:</label>
+        <input type="number" id="prize" name="prize" required>
+        <br>
+
+        <p>Seleccione tipo de operación:</p>
+        <select name="operation-selector" id="operation-selector">
+            <option value="sell">Vendo</option>
+            <option value="buy">Compro</option>
+        </select>
+
+        <label for="image">Subir imagen</label>
+        <input type="text" id="image" name="image">
+
+        <button type="submit">Crear Anuncio</button>
+
+    </form>
+
+    <script type="module" src="./createProduct/index.js"></script>
 </body>
 </html>
