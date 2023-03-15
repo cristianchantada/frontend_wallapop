@@ -11,7 +11,7 @@ export async function userRegister(userData){
             }
         });
 
-        // window.location = "/";
+        window.location = "/";
 
     } catch (error) {
         alert(error);
