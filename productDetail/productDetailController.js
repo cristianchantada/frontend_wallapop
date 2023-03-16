@@ -18,4 +18,15 @@ export async function productDetailController(productDetailSectionElement){
         alert(error);
     }
 
+    const token = localStorage.getItem('token');
+    
+
+    //if(!localStorage.getItem('token')){
+        
+        const deleteButton = productDetailSectionElement.querySelector("#delete-button");
+        productDetailSectionElement.removeChild(deleteButton);
+
+    }
+
+
 }
