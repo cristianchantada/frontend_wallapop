@@ -11,6 +11,8 @@ export async function setProduct(product){
             }
         })
 
+        
+        window.location = "/";
         alert("Producto creado");
 
     } catch (error) {
