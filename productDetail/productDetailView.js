@@ -7,6 +7,6 @@ export function builProductDetailView(productDetailSectionElement, productDetail
         <p><span>${productDetail.prize}</span> €. <span>${productDetail.operation}</span></p>
         <p>${productDetail.image}</p>
         <br>
-        <button id="delete-button" type="submit">Borrar anuncio</button>
+        <button id="delete-button">Borrar anuncio</button>
     `
 }
