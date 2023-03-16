@@ -1,3 +1,4 @@
+import { decodeToken } from "../utils/decodeToken.js";
 import { getProductDetail } from "./productDetailModel.js";
 import { builProductDetailView } from "./productDetailView.js";
 
@@ -14,19 +15,20 @@ export async function productDetailController(productDetailSectionElement){
         const productDetail = await getProductDetail(productId);
         builProductDetailView(productDetailSectionElement, productDetail);
         
+        const encodeToken = localStorage.getItem('token');
+        const token = decodeToken(encodeToken);
+        const userId = token.userId
+        
+        if (userId !== productDetail.userId ){ 
+            const deleteButton = productDetailSectionElement.querySelector("#delete-button");
+            productDetailSectionElement.removeChild(deleteButton);
+        }
+
     } catch (error) {
         alert(error);
     }
 
-    const token = localStorage.getItem('token');
+
+
     
-
-    //if(!localStorage.getItem('token')){
-        
-        const deleteButton = productDetailSectionElement.querySelector("#delete-button");
-        productDetailSectionElement.removeChild(deleteButton);
-
-    }
-
-
 }
