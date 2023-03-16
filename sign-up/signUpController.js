@@ -1,4 +1,5 @@
 import { userRegister } from "./signUpModel.js";
+import {isEmailValid} from "../utils/isEmailValid.js"
 
 export function signUpController(signUpFormElement){
 
@@ -10,15 +11,21 @@ export function signUpController(signUpFormElement){
         const userEmail = formData.get("email");
         const userPassword = formData.get("password");
         const passwordConfirm = formData.get("password-confirm");
-    
-        const userData = {
-            username: userEmail,
-            password: userPassword
+
+        if(!isEmailValid(userEmail)){
+            window.location.reload();
+            alert("El email que ha insertado es incorrecto. Por favor, vuelva a insertarlo");
+        } else {
+            const userData = {
+                username: userEmail,
+                password: userPassword
+            }
+        
+            if (userData.password === passwordConfirm){
+                userRegister(userData);
+            }
         }
     
-        if (userData.password === passwordConfirm){
-            userRegister(userData);
-        }
     })
 
 

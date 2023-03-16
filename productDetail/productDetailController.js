@@ -31,10 +31,14 @@ export async function productDetailController(productDetailSectionElement){
 
                 deleteButton.addEventListener("click", (event) => {
                     event.preventDefault();
-        
-                    deleteProduct(productId);
-                    alert("El anuncio ha sido borrado correctamente");
-                    window.location = "/";
+                    
+                    const answer = confirm("¿Está seguro de que desea borrar el anuncio?");
+
+                    if(answer){
+                        deleteProduct(productId);
+                        alert("El anuncio ha sido borrado correctamente");
+                        window.location = "/";
+                    }
         
                 })
             }

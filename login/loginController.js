@@ -1,4 +1,5 @@
 import { userLog } from "./loginModel.js";
+import {isEmailValid} from "../utils/isEmailValid.js"
 
 export function loginController(logFormElement){
 
@@ -10,12 +11,20 @@ export function loginController(logFormElement){
         const user = formData.get("user");
         const userPassword = formData.get("password");
 
-        const userData = {
-            username: user,
-            password: userPassword
+        if(!isEmailValid(user)){
+            alert("El email que ha insertado es incorrecto. Por favor, vuelva a insertarlo");
+            logFormElement.reset();
+            window.location.reload();
+        } else {
+            const userData = {
+                username: user,
+                password: userPassword
+            }
+    
+            userLog(userData)
+
         }
 
-        userLog(userData)
 
     })
 
