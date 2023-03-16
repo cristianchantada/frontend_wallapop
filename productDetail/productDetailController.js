@@ -15,25 +15,33 @@ export async function productDetailController(productDetailSectionElement){
         const productDetail = await getProductDetail(productId);
         builProductDetailView(productDetailSectionElement, productDetail);
         
-        const encodeToken = localStorage.getItem('token');
-        const token = decodeToken(encodeToken);
-        const userId = token.userId
-        const deleteButton = productDetailSectionElement.querySelector("#delete-button");
+        const Token = localStorage.getItem('token');
         
-        if (userId !== productDetail.userId ){ 
-            productDetailSectionElement.removeChild(deleteButton);
+        if(Token){
+            
+            const userData = decodeToken(Token);
+            const userId = userData.userId
+
+            if (userId === productDetail.userId ){ 
+
+                const deleteButton = document.createElement("button");
+                deleteButton.setAttribute("id", "delete-button");
+                deleteButton.innerText = "Borrar anuncio";
+                productDetailSectionElement.appendChild(deleteButton);
+
+                deleteButton.addEventListener("click", (event) => {
+                    event.preventDefault();
+        
+                    deleteProduct(productId);
+                    alert("El anuncio ha sido borrado correctamente");
+                    window.location = "/";
+        
+                })
+            }
         }
 
         // Borrado de producto:
 
-        deleteButton.addEventListener("click", (event) => {
-            event.preventDefault();
-
-            deleteProduct(productId);
-            alert("El anuncio ha sido borrado correctamente");
-            window.location = "/";
-
-        })
 
     } catch (error) {
         alert(error);
