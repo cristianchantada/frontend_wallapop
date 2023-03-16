@@ -1,7 +1,7 @@
 class PubSub {
 
     TOPICS = {
-      SHOW_NOTIFICATION: 'SHOW_NOTIFICATION'
+        PRODUCT_NOTIFICATION: 'PRODUCT_NOTIFICATION'
     }
   
     constructor() {
