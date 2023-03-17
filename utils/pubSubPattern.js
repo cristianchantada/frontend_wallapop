@@ -1,7 +1,9 @@
 class PubSub {
 
     TOPICS = {
-        PRODUCT_NOTIFICATION: 'PRODUCT_NOTIFICATION'
+        PRODUCT_NOTIFICATION: 'PRODUCT_NOTIFICATION',
+        PAINT_SPINNER: 'PAINT_SPINNER',
+        HIDDE_SPINNER: 'HIDDE_SPINNER'
     }
   
     constructor() {

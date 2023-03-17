@@ -1,5 +1,5 @@
 
-export function userOrders(userOrdersSectionElement){
+export function userOrdersController(userOrdersSectionElement){
 
     const token = localStorage.getItem('token');
     const closeSessionButtonElement = document.querySelector("#close-session");

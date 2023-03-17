@@ -1,11 +1,12 @@
 import { notificationsController } from "./notifications/notificationsController.js";
-import {products} from "./products/productsController.js"
-import { userOrders } from "./userOrders/userOrdersController.js";
+import {productsController} from "./products/productsController.js"
+import { userOrdersController } from "./userOrders/userOrdersController.js";
 
 const productsSectionElement = document.querySelector("#products-section");
 const userOrdersSectionElement = document.querySelector("#user-orders");
 const notificationSectionElement = document.querySelector("#notifications");
+const spinnerSectionElement = document.querySelector("#spinner-section");
 
-products(productsSectionElement);
-userOrders(userOrdersSectionElement);
+productsController(productsSectionElement);
+userOrdersController(userOrdersSectionElement);
 notificationsController(notificationSectionElement);
