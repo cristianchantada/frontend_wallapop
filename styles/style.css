@@ -1,8 +1,36 @@
-
-section {
-    padding: 15px;
+body {
+    background-color: gray;
 }
 
-.product {
-    border: 10px, solid, red
+#notifications {
+    border: solid 2px green;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    margin: 5px;
+}
+
+article {
+    border-radius: 10px;
+    margin: 5px;
+    background-color: rgb(34, 30, 30);
+    color: white;
+    padding: 10px;
+    max-width: 400px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#user-orders {
+    margin: 20px;
+}
+
+#user-orders a {
+    background-color: brown;
+    border-radius: 7px;
+    padding: 5px;
+    border: 2px solid red;
 }

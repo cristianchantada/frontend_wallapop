@@ -10,7 +10,6 @@ export function signUpController(signUpFormElement){
         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
 
         const formData = new FormData(signUpFormElement);
-    
         const userEmail = formData.get("email");
         const userPassword = formData.get("password");
         const passwordConfirm = formData.get("password-confirm");
