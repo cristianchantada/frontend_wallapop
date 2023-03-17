@@ -1,18 +1,15 @@
 import {paintSpinnerView} from "./spinnerView.js";
-import {pubSub} from "../utils/pubSubPattern.js"
+import {pubSub} from "../utils/pubSubPattern.js";
 
-function spinnerController(spinnerSectionElement){
-    spinnerSectionElement.innerHTML = paintSpinnerView();
+export function spinnerController(spinnerSectionElement){
+    
+    function showSpinner(spinnerSectionElement){
+        spinnerSectionElement.innerHTML = paintSpinnerView();
+    }
+    
+    pubSub.subscribe(pubSub.TOPICS.PAINT_SPINNER, showSpinner(spinnerSectionElement));
+    
+    pubSub.subscribe(pubSub.TOPICS.HIDDE_SPINNER, () => {
+        spinnerSectionElement.className = "hidden";
+    });
 }
-
-function hiddeSPinnerView(spinnerSectionElement){
-    spinnerSectionElement.className = "hidden"
-}
-
-pubSub.subscribe(pubSub.TOPICS.PAINT_SPINNER, () => {
-    spinnerController(spinnerSectionElement);
-});
-
-pubSub.subscribe(pubSub.TOPICS.HIDDE_SPINNER, () => {
-    hiddeSPinnerView(spinnerSectionElement);
-});

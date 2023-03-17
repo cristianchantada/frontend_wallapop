@@ -1,5 +1,5 @@
 import { getProducts } from "./productsModel.js";
-import { buildProductsView} from "./productsView.js";
+import { buildProductsView } from "./productsView.js";
 import {pubSub} from "../utils/pubSubPattern.js"
 
 
