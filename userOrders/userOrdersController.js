@@ -20,8 +20,5 @@ export function userOrdersController(userOrdersSectionElement){
         const closeSessionButton = userOrdersSectionElement.querySelector("#close-session");
         userOrdersSectionElement.removeChild(createProductLink);
         userOrdersSectionElement.removeChild(closeSessionButton);
-
-
     }
-
 }

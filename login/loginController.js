@@ -1,11 +1,13 @@
 import { userLog } from "./loginModel.js";
-import {isEmailValid} from "../utils/isEmailValid.js"
+import {isEmailValid} from "../utils/isEmailValid.js";
+import {pubSub} from "../utils/pubSubPattern.js"
 
 export function loginController(logFormElement){
 
     logFormElement.addEventListener("submit", (event) => {
-        
         event.preventDefault();
+
+        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
 
         const formData = new FormData(logFormElement);
         const user = formData.get("user");
@@ -22,9 +24,9 @@ export function loginController(logFormElement){
             }
     
             userLog(userData)
-
         }
-
+        
+        pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);
 
     })
 

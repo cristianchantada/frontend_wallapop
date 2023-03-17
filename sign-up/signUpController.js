@@ -1,10 +1,13 @@
 import { userRegister } from "./signUpModel.js";
-import {isEmailValid} from "../utils/isEmailValid.js"
+import {isEmailValid} from "../utils/isEmailValid.js";
+import {pubSub} from "../utils/pubSubPattern.js"
 
 export function signUpController(signUpFormElement){
 
     signUpFormElement.addEventListener("submit", (event) =>{
         event.preventDefault();
+
+        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
 
         const formData = new FormData(signUpFormElement);
     
@@ -25,6 +28,8 @@ export function signUpController(signUpFormElement){
                 userRegister(userData);
             }
         }
+
+        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
     
     })
 

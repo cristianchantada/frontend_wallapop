@@ -1,7 +1,9 @@
+import {pubSub} from "../utils/pubSubPattern.js"
 
 export async function setProduct(product){
     try {
 
+        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
         const response = await fetch("http://127.0.0.1:8000/api/products", {
             method: "POST",
             body: JSON.stringify(product),
