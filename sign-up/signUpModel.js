@@ -1,7 +1,7 @@
 
 export async function userRegister(userData){
 
-    const response = await fetch("http://127.0.0.1:8000/a", {
+    const response = await fetch("http://127.0.0.1:8000/auth/register", {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {

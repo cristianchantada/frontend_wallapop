@@ -4,10 +4,10 @@ import {pubSub} from "../utils/pubSubPattern.js";
 
 export async function productsController(productsSectionElement){
     
-/*     pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
     let productsList = [];
 
     try {
+        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
         productsList = await getProducts(productsList);
         if(productsList.length > 0){
             paintTweets(productsSectionElement, productsList);
@@ -20,7 +20,7 @@ export async function productsController(productsSectionElement){
         pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Algo ha ido mal, o muy mal.");
         paintErrorView(productsSectionElement);
     }
-/*     pubSub.publish(pubSub.TOPICS.IDDE_SPINNER); */
+        pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);
 }
 
 function paintTweets(productsSectionElement, productsList ){
