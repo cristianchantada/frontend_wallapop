@@ -12,12 +12,10 @@ export async function productsController(productsSectionElement){
         if(productsList.length > 0){
             paintTweets(productsSectionElement, productsList);
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, `Anuncios cargados con éxito; encontrados: ${productsList.length}`);
-
         } else {
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Nadie publica anuncios en esta página; por favor publica algo.");
             paintZeroProducts(productsSectionElement);
         }
-
     } catch (error) {
         pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Algo ha ido mal, o muy mal.");
         paintErrorView(productsSectionElement);
