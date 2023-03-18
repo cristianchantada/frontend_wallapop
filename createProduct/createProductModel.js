@@ -13,6 +13,9 @@ export async function setProduct(product){
             }
         })
 
+        if (!response.ok) {
+            throw new Error('Lo sentimos, el anuncio no ha podido ser creado.')
+          }
         
         window.location = "/";
         alert("Producto creado");

@@ -2,6 +2,11 @@
 export async function getProductDetail(productId){
 
     const response = await fetch(`http://127.0.0.1:8000/api/products/${productId}`);
+
+    if (!response.ok) {
+        throw new Error('El anuncio solicitado no existe. No toquetees la URL, melón.')
+      }
+
     const productDetail = await response.json();
 
     return productDetail;

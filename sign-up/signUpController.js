@@ -24,7 +24,11 @@ export function signUpController(signUpFormElement){
             }
         
             if (userData.password === passwordConfirm){
-                userRegister(userData);
+                try {
+                    userRegister(userData);
+                } catch (error) {
+                    pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
+                }
             }
         }
 

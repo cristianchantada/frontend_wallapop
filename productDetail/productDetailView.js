@@ -1,10 +1,14 @@
 
 export function builProductDetailView( productDetail) {
-    return `
-        <p>${productDetail.name}</p>
-        <p>${productDetail.description}</p>
-        <p><span>${productDetail.prize}</span> €. <span>${productDetail.operation}</span></p>
-        <p>${productDetail.image}</p>
-        <br>
-    `
+    return`
+        <article>
+            <a href=/product-detail.html?id=${productDetail.id} class="product">
+                <p><span>${productDetail.operation}</span><span>${productDetail.name}</span></p>
+                <p>${productDetail.description}</p>
+                <p>${productDetail.prize} €.</p>
+                <img src="${productDetail.image}">
+                <br>
+            </a>
+        </article>
+        `;
 }

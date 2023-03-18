@@ -28,14 +28,14 @@ a {
     margin: 20px;
 }
 
-#user-orders a {
-    background-color: brown;
-    border-radius: 7px;
-    padding: 5px;
-    border: 2px solid red;
-}
-
 img {
     max-width: 250px;
     max-height: 250px;
+}
+
+.button-links {
+    padding: 7px;
+    background-color: black;
+    border-radius: 7px;
+    color: white;
 }

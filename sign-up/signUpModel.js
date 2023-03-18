@@ -13,7 +13,6 @@ export async function userRegister(userData){
         window.location = "/";
 
     } catch (error) {
-        alert(error);
+        throw new Error("Error en el proceso de creación de usuario. Por favor, inténtelo más tarde");
     }
-
 }
