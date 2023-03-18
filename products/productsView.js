@@ -1,10 +1,6 @@
 
-export function buildProductsView(productsList, productsSectionElement){
-
-
-    for(const product of productsList){
-        const productItemElement = document.createElement('article')
-        productItemElement.innerHTML = `
+export function buildProductsView(product){
+    return`
         <a href=/product-detail.html?id=${product.id} class="product">
             <p>${product.name}</p>
             <p>${product.description}</p>
@@ -13,8 +9,16 @@ export function buildProductsView(productsList, productsSectionElement){
             <br>
         </a>
         `;
-
-        productsSectionElement.appendChild(productItemElement);
-
     }
+
+export function buildZeroProductsView(){
+    return `<p>No exiten productos que ofrecerte</p>
+    <p>Pero puedes publicar tú una oferta.</p>
+    `
+}
+
+export function buildErrorView(){
+    return `<p>Se ha producido un error en la carga de los anuncios</p>
+    <p>Por favor, inténtelo más tarde</p>
+    `  
 }

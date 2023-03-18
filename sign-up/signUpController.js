@@ -7,7 +7,7 @@ export function signUpController(signUpFormElement){
     signUpFormElement.addEventListener("submit", (event) =>{
         event.preventDefault();
 
-        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
+        /* pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
 
         const formData = new FormData(signUpFormElement);
         const userEmail = formData.get("email");
@@ -28,7 +28,7 @@ export function signUpController(signUpFormElement){
             }
         }
 
-        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
+/*         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
     
     })
 

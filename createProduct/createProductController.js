@@ -22,8 +22,9 @@ export function createProduct(createProductFormElement){
         }
         
         try {
+            // PAINT spinnner está dentro de la función
             setProduct(product);
-            pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);
+/*             pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER); */
             window.location = "/";
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "El anuncio ha sido creado correctamente");
         } catch (error) {

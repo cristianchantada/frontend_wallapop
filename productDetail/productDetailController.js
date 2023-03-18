@@ -13,10 +13,10 @@ export async function productDetailController(productDetailSectionElement){
     }
 
     try {
-        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
+/*         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
         const productDetail = await getProductDetail(productId);
-        builProductDetailView(productDetailSectionElement, productDetail);
-        pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);
+        productDetailSectionElement.innerHTML = builProductDetailView(productDetail);
+/*         pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER); */
         
         const Token = localStorage.getItem('token');
         
@@ -38,10 +38,10 @@ export async function productDetailController(productDetailSectionElement){
                     const answer = confirm("¿Está seguro de que desea borrar el anuncio?");
 
                     if(answer){
-                        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
+/*                         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
                         deleteProduct(productId);
                         alert("El anuncio ha sido borrado correctamente");
-                        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
+/*                         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
                         window.location = "/";
                     }
         

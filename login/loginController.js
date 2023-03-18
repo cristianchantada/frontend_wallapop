@@ -7,12 +7,10 @@ export function loginController(logFormElement){
     logFormElement.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
-
         const formData = new FormData(logFormElement);
         const user = formData.get("user");
         const userPassword = formData.get("password");
-
+        
         if(!isEmailValid(user)){
             alert("El email que ha insertado es incorrecto. Por favor, vuelva a insertarlo");
             logFormElement.reset();
@@ -22,11 +20,10 @@ export function loginController(logFormElement){
                 username: user,
                 password: userPassword
             }
-    
-            userLog(userData)
+            
+            userLog(userData);
         }
         
-        pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);
 
     })
 
