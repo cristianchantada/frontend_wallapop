@@ -2,10 +2,10 @@
 export function buildProductsView(product){
     return`
         <a href=/product-detail.html?id=${product.id} class="product">
-            <p>${product.name}</p>
+            <p><span>${product.operation}</span><span>${product.name}</span></p>
             <p>${product.description}</p>
-            <p><span>${product.prize}</span> €. <span>${product.operation}</span></p>
-            <p>${product.image}</p>
+            <p>${product.prize} €.</p>
+            <img src="${product.image}">
             <br>
         </a>
         `;
