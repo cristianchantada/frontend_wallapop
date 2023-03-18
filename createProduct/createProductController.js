@@ -2,7 +2,15 @@ import { setProduct } from "./createProductModel.js";
 import {pubSub} from "../utils/pubSubPattern.js"
 
 export function createProduct(createProductFormElement){
-    createProductFormElement.addEventListener("submit", (event) => {
+
+    const token = localStorage.getItem('token');
+
+    if(!token){
+        alert("Usted no está logueado en la web. Inicie sesión para poder publicar un anuncio");
+        window.location = "/";
+    }
+
+    createProductFormElement.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const formData = new FormData(createProductFormElement);
@@ -22,13 +30,18 @@ export function createProduct(createProductFormElement){
         }
         
         try {
-            // PAINT spinnner está dentro de la función
-            setProduct(product);
-/*             pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER); */
+            /*pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);*/
+            await setProduct(product);
+            /*pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);*/
+            /*pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "El anuncio ha sido creado correctamente");*/
+            alert("El producto ha sido publicado correctamente");
             window.location = "/";
-            pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "El anuncio ha sido creado correctamente");
         } catch (error) {
-            pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Ha ocurrido un error, el anuncio no ha podido ser creado");
+            pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
+            alert(error.message);
+            window.location = "/";
         }
     });
 }
+
+        

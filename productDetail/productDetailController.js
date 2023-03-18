@@ -5,8 +5,10 @@ import { pubSub } from "../utils/pubSubPattern.js"
 
 export async function productDetailController(productDetailSectionElement){
 
+
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
+    let productDetail = "";
 
     if(!productId){
         window.location = "/";
@@ -14,7 +16,7 @@ export async function productDetailController(productDetailSectionElement){
 
     try {
 /*         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
-        const productDetail = await getProductDetail(productId);
+        productDetail = await getProductDetail(productId);
         productDetailSectionElement.innerHTML = builProductDetailView(productDetail);
 
 /*         pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER); */

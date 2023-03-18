@@ -4,7 +4,7 @@ import {pubSub} from "../utils/pubSubPattern.js"
 
 export function signUpController(signUpFormElement){
 
-    signUpFormElement.addEventListener("submit", (event) =>{
+    signUpFormElement.addEventListener("submit", async (event) =>{
         event.preventDefault();
 
         /* pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
@@ -25,16 +25,16 @@ export function signUpController(signUpFormElement){
         
             if (userData.password === passwordConfirm){
                 try {
-                    userRegister(userData);
+                    await userRegister(userData);
+                    window.location.reload();
+                    alert("El usuario ha sido registrado correctamente");
+                    window.location = "/";
                 } catch (error) {
                     pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
+                    alert(error.message);
                 }
             }
         }
-
-/*         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
-    
+        /*pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
     })
-
-
 }

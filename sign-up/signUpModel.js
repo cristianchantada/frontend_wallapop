@@ -1,18 +1,15 @@
 
 export async function userRegister(userData){
 
-    try {
-        const reponse = await fetch("http://127.0.0.1:8000/auth/register", {
-            method: "POST",
-            body: JSON.stringify(userData),
-            headers: {
-                "Content-Type": "application/json",
-            }
-        });
+    const response = await fetch("http://127.0.0.1:8000/a", {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
 
-        window.location = "/";
-
-    } catch (error) {
-        throw new Error("Error en el proceso de creación de usuario. Por favor, inténtelo más tarde");
+    if (!response.ok) {
+        throw new Error("Ha habido un error en el proceso de creación del usuario");
     }
 }

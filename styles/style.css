@@ -39,3 +39,7 @@ img {
     border-radius: 7px;
     color: white;
 }
+
+.in-line {
+    display: inline;
+}

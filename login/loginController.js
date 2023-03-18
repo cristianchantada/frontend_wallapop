@@ -4,7 +4,7 @@ import {pubSub} from "../utils/pubSubPattern.js"
 
 export function loginController(logFormElement){
 
-    logFormElement.addEventListener("submit", (event) => {
+    logFormElement.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const formData = new FormData(logFormElement);
@@ -22,15 +22,12 @@ export function loginController(logFormElement){
             }
 
             try {
-                userLog(userData);
-                
+                await userLog(userData);
             } catch (error) {
-                pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message)
+                alert(error.message);
+                logFormElement.reset();
+                window.location.reload();
             }
-        
         }
-        
-
     })
-
 }

@@ -1,3 +1,5 @@
+import {decodeToken} from "../utils/decodeToken.js";
+import {buildIdentificationView} from "./userOrdersView.js"
 
 export function userOrdersController(userOrdersSectionElement){
 
@@ -9,6 +11,12 @@ export function userOrdersController(userOrdersSectionElement){
         const userSignupLink = userOrdersSectionElement.querySelector("#user-signup");
         userOrdersSectionElement.removeChild(userLoginLink);
         userOrdersSectionElement.removeChild(userSignupLink);
+
+        const userData = decodeToken(token);
+        const userName = userData.username;
+
+        const identificationParagraph = buildIdentificationView(userName);
+        userOrdersSectionElement.appendChild(identificationParagraph, "in-line");
 
         closeSessionButtonElement.addEventListener("click", () => {
             localStorage.removeItem('token');
