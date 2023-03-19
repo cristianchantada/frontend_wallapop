@@ -14,7 +14,7 @@ export async function userLog(userData){
             if(fetchURL === "http://127.0.0.1:8000/auth/login"){
                 throw new Error('No te reconozco pallo. EMosido ENGAÑADO');
             } else {
-                throw new Error('¡ Alaaaa ! ya has roto algo'); 
+                throw new Error('¡ Alaaaa ! ya has roto algo. No toques, pa q tocas?'); 
             }
         }
 

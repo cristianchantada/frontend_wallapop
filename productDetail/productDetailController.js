@@ -45,11 +45,16 @@ export async function productDetailController(productDetailSectionElement){
                 const answer = confirm("¿Está seguro de que desea borrar el anuncio?");
 
                 if(answer){
-                    showSpinner();
-                    deleteProduct(productId);
-                    hiddeSpinner();
-                    alert("El anuncio ha sido borrado correctamente");
-                    window.location = "/";
+                    try {
+                        showSpinner();
+                        deleteProduct(productId);
+                        alert("El anuncio ha sido borrado correctamente");
+                        window.location = "/";  
+                    } catch (error) {
+                        pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message)
+                    } finally {
+                        hiddeSpinner();
+                    }
                 }
             })
         }

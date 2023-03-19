@@ -21,4 +21,8 @@ export async function deleteProduct(productId){
             "Authorization": `Bearer ${token}`
         }
     });
+
+    if (!response.ok) {
+        throw new Error('El anuncio no ha podido ser borrado');
+    }
 }

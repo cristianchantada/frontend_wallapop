@@ -10,6 +10,6 @@ export async function userRegister(userData){
     });
 
     if (!response.ok) {
-        throw new Error("Ha habido un error en el proceso de creación del usuario");
+        throw new Error("Ha habido un error en el proceso de creación del usuario o el usuario ya existe");
     }
 }
