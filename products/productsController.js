@@ -6,11 +6,7 @@ import {pubSub} from "../utils/pubSubPattern.js";
 export async function productsController(productsSectionElement){
     
     let productsList = [];
-    /*     const spinnerPaintEvent = new CustomEvent("weNeedSpinner");
-    const spinnerHiddeEvent = new CustomEvent("weNeedHiddeSpinner"); */
-    /* 
-    productsSectionElement.dispatchEvent(spinnerPaintEvent); */
-    
+
     try {
         
         showSpinner();
@@ -30,9 +26,6 @@ export async function productsController(productsSectionElement){
     } finally {
         hiddeSpinner();
     }
-    
-    /* productsSectionElement.dispatchEvent(spinnerHiddeEvent); */
-
 }
 
 function paintTweets(productsSectionElement, productsList ){

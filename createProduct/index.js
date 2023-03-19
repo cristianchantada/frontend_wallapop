@@ -1,8 +1,8 @@
+import { notificationsController} from "../notifications/notificationsController.js";
 import { createProduct } from "./createProductController.js";
-import {spinnerController} from "../spinner/spinnerController.js";
 
 const createProductFormElement = document.querySelector("#create-product-form");
 createProduct(createProductFormElement);
 
-/* const spinnerSectionElement = document.querySelector("#spinner-section");
-spinnerController(spinnerSectionElement); */
+const notificationSectionElement = document.querySelector("#notifications");
+notificationsController(notificationSectionElement);

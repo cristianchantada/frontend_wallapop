@@ -1,9 +1,8 @@
-import {pubSub} from "../utils/pubSubPattern.js"
 
 export async function userLog(userData){
 
-/*         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
-        const response = await fetch("http://127.0.0.1:8000/auth/login", {
+        const fetchURL = "http://127.0.0.1:8000/a";
+        const response = await fetch(fetchURL, {
             method: "POST",
             body: JSON.stringify(userData),
             headers: {
@@ -12,14 +11,13 @@ export async function userLog(userData){
         });
 
         if (!response.ok) {
-            throw new Error('No te reconozco pallo. El usuario no existe.');
+            if(fetchURL === "http://127.0.0.1:8000/auth/login"){
+                throw new Error('No te reconozco pallo. EMosido ENGAÑADO');
+            } else {
+                throw new Error('¡ Alaaaa ! ya has roto algo'); 
+            }
         }
 
         const token = await response.json(); 
         localStorage.setItem("token", token.accessToken);
-
-/*     
-    finally {
-        pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);
-    } */
 };

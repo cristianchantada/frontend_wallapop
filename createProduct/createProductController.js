@@ -32,16 +32,13 @@ export function createProduct(createProductFormElement){
         try {
             showSpinner();
             await setProduct(product);
-            hiddeSpinner();
             alert("El producto ha sido publicado correctamente");
             window.location = "/";
         } catch (error) {
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
-            alert(error.message);
-            window.location = "/";
+            createProductFormElement.reset();
+        } finally {
+            hiddeSpinner();
         }
-
     });
 }
-
-        

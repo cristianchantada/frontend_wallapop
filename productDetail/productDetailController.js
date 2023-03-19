@@ -6,7 +6,6 @@ import { pubSub } from "../utils/pubSubPattern.js"
 
 export async function productDetailController(productDetailSectionElement){
 
-
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
     let productDetail = "";
@@ -16,24 +15,21 @@ export async function productDetailController(productDetailSectionElement){
     }
 
     try {
-/*         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
         showSpinner();
         productDetail = await getProductDetail(productId);
-        productDetailSectionElement.innerHTML = builProductDetailView(productDetail);
-
-/*         pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER); */
-        
+        productDetailSectionElement.innerHTML = builProductDetailView(productDetail); 
     } catch (error) {
         pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
+    } finally {
+        hiddeSpinner();
     }
 
-    hiddeSpinner();
     const Token = localStorage.getItem('token');
     
     if(Token){
         
         const userData = decodeToken(Token);
-        const userId = userData.userId
+        const userId = userData.userId;
 
         if (userId === productDetail.userId ){ 
 
@@ -49,15 +45,12 @@ export async function productDetailController(productDetailSectionElement){
                 const answer = confirm("¿Está seguro de que desea borrar el anuncio?");
 
                 if(answer){
-/*                         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
                     showSpinner();
                     deleteProduct(productId);
                     hiddeSpinner();
                     alert("El anuncio ha sido borrado correctamente");
-/*                         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
                     window.location = "/";
                 }
-    
             })
         }
     }

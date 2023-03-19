@@ -1,7 +1,7 @@
-import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
-import { userLog } from "./loginModel.js";
+import {hiddeSpinner, showSpinner} from "../utils/spinnerFunctions.js";
 import {isEmailValid} from "../utils/isEmailValid.js";
-/* import {pubSub} from "../utils/pubSubPattern.js" */
+import { pubSub } from "../utils/pubSubPattern.js";
+import { userLog } from "./loginModel.js";
 
 export function loginController(logFormElement){
 
@@ -13,9 +13,7 @@ export function loginController(logFormElement){
         const userPassword = formData.get("password");
         
         if(!isEmailValid(user)){
-            alert("El email que ha insertado es incorrecto. Por favor, vuelva a insertarlo");
-            logFormElement.reset();
-            window.location.reload();
+            pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "El email que ha insertado es incorrecto. Por favor, vuelva a insertarlo");
         } else {
             const userData = {
                 username: user,
@@ -27,9 +25,9 @@ export function loginController(logFormElement){
                 await userLog(userData);
                 window.location = "/";
             } catch (error) {
-                alert(error.message);
-                logFormElement.reset();
-                window.location.reload();
+                pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
+            } finally {
+                hiddeSpinner();
             }
         }
     })

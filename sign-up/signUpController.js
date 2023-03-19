@@ -8,16 +8,13 @@ export function signUpController(signUpFormElement){
     signUpFormElement.addEventListener("submit", async (event) =>{
         event.preventDefault();
 
-        /* pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
-
         const formData = new FormData(signUpFormElement);
         const userEmail = formData.get("email");
         const userPassword = formData.get("password");
         const passwordConfirm = formData.get("password-confirm");
 
         if(!isEmailValid(userEmail)){
-            window.location.reload();
-            alert("El email que ha insertado es incorrecto. Por favor, vuelva a insertarlo");
+            pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "El email que ha insertado es incorrecto. Por favor, vuelva a insertarlo");
         } else {
             const userData = {
                 username: userEmail,
@@ -34,12 +31,9 @@ export function signUpController(signUpFormElement){
                     window.location = "/";
                 } catch (error) {
                     pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
-                    alert(error.message);
                     signUpFormElement.reset();
-                    window.location.reload();
                 }
             }
         }
-        /*pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
     })
 }

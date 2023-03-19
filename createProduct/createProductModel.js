@@ -1,7 +1,7 @@
 
 export async function setProduct(product){
 
-    const response = await fetch("http://127.0.0.1:8000/api/products", {
+    const response = await fetch("http://127.0.0.1:8000/a", {
         method: "POST",
         body: JSON.stringify(product),
         headers: {
