@@ -17,7 +17,8 @@ export async function productDetailController(productDetailSectionElement){
     try {
         showSpinner();
         productDetail = await getProductDetail(productId);
-        productDetailSectionElement.innerHTML = builProductDetailView(productDetail); 
+        productDetailSectionElement.innerHTML = builProductDetailView(productDetail);
+        pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "El anuncio ha sido cargado satisfactoriamente"); 
     } catch (error) {
         pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
     } finally {

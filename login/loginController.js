@@ -23,6 +23,7 @@ export function loginController(logFormElement){
             try {
                 showSpinner();
                 await userLog(userData);
+                alert("Está bien, pasa anda")
                 window.location = "/";
             } catch (error) {
                 pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
