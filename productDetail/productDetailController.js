@@ -1,6 +1,7 @@
-import { decodeToken } from "../utils/decodeToken.js";
 import { deleteProduct, getProductDetail } from "./productDetailModel.js";
+import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import { builProductDetailView } from "./productDetailView.js";
+import { decodeToken } from "../utils/decodeToken.js";
 import { pubSub } from "../utils/pubSubPattern.js"
 
 export async function productDetailController(productDetailSectionElement){
@@ -16,6 +17,7 @@ export async function productDetailController(productDetailSectionElement){
 
     try {
 /*         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
+        showSpinner();
         productDetail = await getProductDetail(productId);
         productDetailSectionElement.innerHTML = builProductDetailView(productDetail);
 
@@ -25,6 +27,7 @@ export async function productDetailController(productDetailSectionElement){
         pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
     }
 
+    hiddeSpinner();
     const Token = localStorage.getItem('token');
     
     if(Token){
@@ -47,7 +50,9 @@ export async function productDetailController(productDetailSectionElement){
 
                 if(answer){
 /*                         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
+                    showSpinner();
                     deleteProduct(productId);
+                    hiddeSpinner();
                     alert("El anuncio ha sido borrado correctamente");
 /*                         pubSub.publish(pubSub.TOPICS.PAINT_SPINNER); */
                     window.location = "/";

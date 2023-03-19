@@ -17,7 +17,6 @@ export async function userLog(userData){
 
         const token = await response.json(); 
         localStorage.setItem("token", token.accessToken);
-        window.location = "/";
 
 /*     
     finally {

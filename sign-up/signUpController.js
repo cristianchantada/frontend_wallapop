@@ -1,5 +1,6 @@
-import { userRegister } from "./signUpModel.js";
+import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import {isEmailValid} from "../utils/isEmailValid.js";
+import { userRegister } from "./signUpModel.js";
 import {pubSub} from "../utils/pubSubPattern.js"
 
 export function signUpController(signUpFormElement){
@@ -25,14 +26,16 @@ export function signUpController(signUpFormElement){
         
             if (userData.password === passwordConfirm){
                 try {
+                    showSpinner();
                     await userRegister(userData);
+                    hiddeSpinner();
                     window.location.reload();
                     alert("El usuario ha sido registrado correctamente");
                     window.location = "/";
                 } catch (error) {
                     pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
                     alert(error.message);
-                    formData.reset();
+                    signUpFormElement.reset();
                     window.location.reload();
                 }
             }

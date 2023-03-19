@@ -1,3 +1,4 @@
+import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import { setProduct } from "./createProductModel.js";
 import {pubSub} from "../utils/pubSubPattern.js"
 
@@ -29,10 +30,9 @@ export function createProduct(createProductFormElement){
         }
         
         try {
-            /*pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);*/
+            showSpinner();
             await setProduct(product);
-            /*pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);*/
-            /*pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "El anuncio ha sido creado correctamente");*/
+            hiddeSpinner();
             alert("El producto ha sido publicado correctamente");
             window.location = "/";
         } catch (error) {
@@ -40,6 +40,7 @@ export function createProduct(createProductFormElement){
             alert(error.message);
             window.location = "/";
         }
+
     });
 }
 

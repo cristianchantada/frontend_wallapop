@@ -1,6 +1,7 @@
+import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import { userLog } from "./loginModel.js";
 import {isEmailValid} from "../utils/isEmailValid.js";
-import {pubSub} from "../utils/pubSubPattern.js"
+/* import {pubSub} from "../utils/pubSubPattern.js" */
 
 export function loginController(logFormElement){
 
@@ -22,7 +23,9 @@ export function loginController(logFormElement){
             }
 
             try {
+                showSpinner();
                 await userLog(userData);
+                window.location = "/";
             } catch (error) {
                 alert(error.message);
                 logFormElement.reset();

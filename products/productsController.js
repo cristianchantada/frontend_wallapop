@@ -1,19 +1,21 @@
 import { buildProductsView, buildZeroProductsView, buildErrorView } from "./productsView.js";
+import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import { getProducts } from "./productsModel.js";
 import {pubSub} from "../utils/pubSubPattern.js";
 
 export async function productsController(productsSectionElement){
     
     let productsList = [];
-    const spinnerPaintEvent = new CustomEvent("weNeedSpinner");
-    const spinnerHiddeEvent = new CustomEvent("weNeedHiddeSpinner");
-
-    productsSectionElement.dispatchEvent(spinnerPaintEvent);
-
+    /*     const spinnerPaintEvent = new CustomEvent("weNeedSpinner");
+    const spinnerHiddeEvent = new CustomEvent("weNeedHiddeSpinner"); */
+    /* 
+    productsSectionElement.dispatchEvent(spinnerPaintEvent); */
+    
     try {
         
+        showSpinner();
         productsList = await getProducts(productsList);
-
+        
         if(productsList.length > 0){
             paintTweets(productsSectionElement, productsList);
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, `${productsList.length} anuncios cargados con éxito`);
@@ -21,13 +23,15 @@ export async function productsController(productsSectionElement){
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Nadie publica anuncios en esta página; por favor publica algo.");
             paintZeroProducts(productsSectionElement);
         }
-
+        
     } catch (error) {
         pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Algo ha ido mal, o muy mal.");
         paintErrorView(productsSectionElement);
+    } finally {
+        hiddeSpinner();
     }
-
-    productsSectionElement.dispatchEvent(spinnerHiddeEvent);
+    
+    /* productsSectionElement.dispatchEvent(spinnerHiddeEvent); */
 
 }
 
