@@ -35,6 +35,7 @@ export async function productDetailController(productDetailSectionElement){
         if (userId === productDetail.userId ){ 
 
             const deleteButton = document.createElement("button");
+            deleteButton.className = "delete-button";
             deleteButton.setAttribute("id", "delete-button");
             deleteButton.innerText = "Borrar anuncio";
             productDetailSectionElement.appendChild(deleteButton);

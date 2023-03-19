@@ -16,7 +16,7 @@ export async function productsController(productsSectionElement){
 
         if(productsList.length > 0){
             paintTweets(productsSectionElement, productsList);
-            pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, `Anuncios cargados con éxito; encontrados: ${productsList.length}`);
+            pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, `${productsList.length} anuncios cargados con éxito`);
         } else {
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Nadie publica anuncios en esta página; por favor publica algo.");
             paintZeroProducts(productsSectionElement);

@@ -1,7 +1,7 @@
 
 export function buildProductsView(product){
     return`
-        <a href=/product-detail.html?id=${product.id} class="product">
+        <a href=/product-detail.html?id=${product.id} class="product-article">
             <p><span>${product.operation}</span><span>${product.name}</span></p>
             <p>${product.description}</p>
             <p>${product.prize} €.</p>

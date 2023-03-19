@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/spinner.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -13,30 +14,34 @@
 
     <section id="notifications"></section>
 
-    <form id="create-product-form">
+    <form class="card" id="create-product-form">
 
         <label for="productTitle">Producto:</label>
+        <br>
         <input type="text" id="productTitle" name="productTitle" required>
         <br>
 
         <p>Descripción del producto:</p>
         <textarea name="product-description" id="product-description" cols="30" rows="10"></textarea>
         <br>
-
+        <br>
         <label for="prize">Precio:</label>
         <input type="text" id="prize" name="prize" required>
         <br>
 
-        <p>Seleccione tipo de operación:</p>
+        <p>Seleccione tipo de operación:
         <select name="operation-selector" id="operation-selector">
             <option value="Vendo ">Vendo</option>
             <option value="Compro ">Compro</option>
         </select>
+        </p>
+        <br>
 
-        <label for="image">Subir imagen</label>
+        <label for="image">Subir imagen: </label>
         <input type="text" id="image" name="image">
+        <br>
 
-        <button type="submit">Crear Anuncio</button>
+        <button id="create-product-button" type="submit">Crear Anuncio</button>
 
     </form>
 

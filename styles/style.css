@@ -1,27 +1,92 @@
+* {
+    font-size: 20px;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+
 body {
-    background-color: gray;
+    background-color: rgb(207, 203, 203);
+    margin-top: 50px;
 }
 
 #notifications {
-    border: solid 2px green;
     border-radius: 10px;
     max-width: 400px;
     text-align: center;
+    font-size: larger;
+    color: white;
+    font-weight: bold;
+    background-color: green;
     margin: 5px;
+    margin-left: 25px 
 }
 
-article {
+#login-form {
     border-radius: 10px;
-    margin: 5px;
-    background-color: rgb(34, 30, 30);
+    margin: 15px;
+    background-color: rgb(30, 83, 163);
     color: white;
     padding: 10px;
     max-width: 400px;
 }
 
+#login-form > * {
+    padding: 5px;
+    margin: 5px;
+}
+
+#login-form > input {
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+#login-form > button {
+    padding: 5px;
+    margin: 5px;
+    margin-top: 20px;
+    background-color: grey;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#login-form > button:hover {
+    background-color: #dd6a0c;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+article {
+    border-radius: 10px;
+    margin: 15px;
+    background-color: rgb(30, 83, 163);
+    color: white;
+    padding: 10px;
+    max-width: 400px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.card {
+    border-radius: 10px;
+    margin: 5px;
+    background-color: rgb(30, 83, 163);
+    color: white;
+    padding: 10px;
+    max-width: 400px;
+    padding: 20px;  
+}
+
+.card > * {
+    padding: 5px;
+}
+
 a {
     color: white;
     text-decoration: none;
+}
+
+article:hover {
+    background-color: #dd6a0c;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #user-orders {
@@ -35,11 +100,99 @@ img {
 
 .button-links {
     padding: 7px;
-    background-color: black;
+    background-color: rgb(30, 83, 163);
     border-radius: 7px;
     color: white;
 }
 
+.button-links:hover {
+    background-color: #dd6a0c;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 .in-line {
     display: inline;
+}
+
+#create-product-button {
+    border-radius: 7px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgb(133, 139, 148);
+}
+
+textarea {
+    min-width: 395px;
+}
+
+.user-p {
+    border-radius: 10px;
+    background-color: rgb(30, 83, 163);
+    color: white;
+    padding: 10px;
+    max-width: 374px;
+    padding: 20px; 
+}
+
+#sign-up-form, #create-product-form {
+    border-radius: 10px;
+    margin: 15px;
+    background-color: rgb(30, 83, 163);
+    color: white;
+    padding: 10px;
+    max-width: 400px;
+}
+
+#sign-up-form > *, #create-product-form > * {
+    padding: 5px;
+    margin: 5px;
+}
+
+#sign-up-form > input, #create-product-form > input {
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+#sign-up-form > button, #create-product-form > button {
+    padding: 5px;
+    margin: 5px;
+    margin-top: 20px;
+    background-color: grey;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#sign-up-form > button:hover, #create-product-form > button:hover {
+    background-color: #dd6a0c;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.delete-button {
+    padding: 7px;
+    background-color: rgb(30, 83, 163);
+    border-radius: 7px;
+    color: white;
+    margin-left: 18px;
+}
+
+.delete-button:hover {
+    background-color: #dd6a0c;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#return-button {
+    margin-left: 20px;
+}
+
+div {
+    border-radius: 10px;
+    margin: 15px;
+    background-color: rgb(30, 83, 163);
+    color: white;
+    padding: 10px;
+    max-width: 400px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
