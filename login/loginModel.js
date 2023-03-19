@@ -1,7 +1,7 @@
 
 export async function userLog(userData){
 
-        const fetchURL = "http://127.0.0.1:8000/a";
+        const fetchURL = "http://127.0.0.1:8000/auth/login";
         const response = await fetch(fetchURL, {
             method: "POST",
             body: JSON.stringify(userData),

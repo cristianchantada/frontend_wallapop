@@ -9,13 +9,14 @@ body {
 }
 
 #notifications {
+
     border-radius: 10px;
     max-width: 400px;
     text-align: center;
     font-size: larger;
     color: white;
     font-weight: bold;
-    background-color: green;
+    background-color: #dd6a0c;
     margin: 5px;
     margin-left: 25px 
 }
@@ -177,13 +178,6 @@ textarea {
     margin-left: 18px;
 }
 
-/* .delete-button{
-    border-radius: 7px;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: rgb(133, 139, 148);
-} */
-
 .delete-button:hover {
     background-color: #dd6a0c;
     color: white;
@@ -204,4 +198,12 @@ textarea {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-
+#products-section > p {
+    border-radius: 10px;
+    margin: 15px;
+    background-color: rgb(182, 17, 17);
+    color: white;
+    padding: 10px;
+    max-width: 400px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

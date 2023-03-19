@@ -1,0 +1,16 @@
+{"users":
+    [
+        {"username":"lamia@mail.com","password":"$2b$10$eWmt1uYWL38O5r9ABULCzOT/9mTrzsLlPW5dsY7q31dt2.uVZf4NS","id":1},
+        {"username":"cristian@mail.com","password":"$2b$10$eWmt1uYWL38O5r9ABULCzOT/9mTrzsLlPW5dsY7q31dt2.uVZf4NS","id":2}
+    ],
+    "products":
+    [
+        {"name":"Caja de melocotones","description":"Vendo melocotones de temporada. Máxima seriedad","prize":"9.99","operation":"Vendo ","image":"./img/melocotones.jpg","userId":2,"updatedAt":"2023-03-18T10:48:44.906Z","id":1},
+        {"name":"Chupa-chups caducados","description":"Los he encontrado en el desván en una mochila de cuando iba EGB. Están riquísimos, mejor que nuevos del kiosko.","prize":"7.5","operation":"Vendo ","image":"./img/chupa-chups.jpg","userId":2,"updatedAt":"2023-03-18T11:00:20.138Z","id":2},
+        {"name":"Patinete viejo","description":"Es viejo, pero mejoran con el tiempo, como el vino.","prize":"22","operation":"Vendo ","image":"./img/patinete.jpg","userId":2,"updatedAt":"2023-03-18T11:04:30.082Z","id":3},
+        {"name":"Fragoneta nueba","description":"Está nueba pallo. Ben con los dineros en efectibo.","prize":"15000","operation":"Vendo ","image":"./img/fragoneta.jpg","userId":2,"updatedAt":"2023-03-18T11:05:51.099Z","id":4},
+        {"name":"Bragas 'vintage' poco uso","description":"Bragas 'vintage' de mi abuela, modelo 1929.3x2","prize":"4.99","operation":"Vendo ","image":"./img/bragas.jpg","userId":1,"updatedAt":"2023-03-18T11:07:15.802Z","id":5},
+        {"name":"Reloges roles y mobiles hai fon y jollas rovadas","description":"No abisar policia masima descripcion porfabor pago en dinero","prize":"100","operation":"Vendo ","image":"./img/relojes.jpg","userId":1,"updatedAt":"2023-03-18T11:09:45.888Z","id":6},
+        {"name":"Hamijos","description":"No tengo hamijo dice mi madre; tengo 47, soltero, mi abuela dice que soy guapo. Vivo con ellas. Me gusta jugar parchis. SI eres chica mejor, sino me conformo con poco. ","prize":"10 €/día","operation":"Compro ","image":"./img/amigos.jpg","userId":1,"updatedAt":"2023-03-18T11:13:48.227Z","id":7}
+    ]
+}
