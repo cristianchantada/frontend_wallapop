@@ -1,5 +1,19 @@
 
-export async function setProduct(product){
+export async function setProduct(formData){
+
+    const productTitle = formData.get("productTitle");
+    const productDescription = formData.get("product-description");
+    const productPrize = formData.get("prize");
+    const operationSelector = formData.get("operation-selector");
+    const productImage = formData.get("image");
+    
+    const product = {
+        name: productTitle,
+        description: productDescription,
+        prize: productPrize,
+        operation: operationSelector,
+        image: productImage  
+    }
 
     const response = await fetch("http://127.0.0.1:8000/api/products", {
         method: "POST",

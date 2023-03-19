@@ -1,7 +1,7 @@
 import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import {isEmailValid} from "../utils/isEmailValid.js";
 import { userRegister } from "./signUpModel.js";
-import {pubSub} from "../utils/pubSubPattern.js"
+import {pubSub} from "../utils/pubSubPattern.js";
 
 export function signUpController(signUpFormElement){
 

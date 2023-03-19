@@ -8,7 +8,6 @@ export async function productsController(productsSectionElement){
     let productsList = [];
 
     try {
-        
         showSpinner();
         productsList = await getProducts(productsList);
         

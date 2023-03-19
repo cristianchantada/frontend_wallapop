@@ -1,5 +1,5 @@
-import {pubSub} from "../utils/pubSubPattern.js"
-import { buildNotificationView } from "./notificationsView.js"
+import { buildNotificationView } from "./notificationsView.js";
+import {pubSub} from "../utils/pubSubPattern.js";
 
 export function notificationsController(notificationSectionElement){
 
@@ -8,6 +8,5 @@ export function notificationsController(notificationSectionElement){
         setTimeout(()=>{
             notificationSectionElement.innerHTML = "";
         }, 3000);
-    })
-
+    });
 }

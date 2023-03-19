@@ -1,6 +1,6 @@
 import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import { setProduct } from "./createProductModel.js";
-import {pubSub} from "../utils/pubSubPattern.js"
+import {pubSub} from "../utils/pubSubPattern.js";
 
 export function createProduct(createProductFormElement){
 
@@ -15,23 +15,10 @@ export function createProduct(createProductFormElement){
         event.preventDefault();
 
         const formData = new FormData(createProductFormElement);
-        const productTitle = formData.get("productTitle");
-        const productDescription = formData.get("product-description");
-        const productPrize = formData.get("prize");
-        const operationSelector = formData.get("operation-selector");
-        const productImage = formData.get("image");
-        
-        const product = {
-            name: productTitle,
-            description: productDescription,
-            prize: productPrize,
-            operation: operationSelector,
-            image: productImage  
-        }
-        
+
         try {
             showSpinner();
-            await setProduct(product);
+            await setProduct(formData);
             alert("El producto ha sido publicado correctamente");
             window.location = "/";
         } catch (error) {

@@ -1,5 +1,5 @@
-import { signUpController } from "./signUpController.js";
 import { notificationsController} from "../notifications/notificationsController.js";
+import { signUpController } from "./signUpController.js";
 
 const signUpFormElement = document.querySelector("#sign-up-form");
 signUpController(signUpFormElement);

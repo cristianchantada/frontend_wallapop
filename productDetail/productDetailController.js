@@ -2,7 +2,7 @@ import { deleteProduct, getProductDetail } from "./productDetailModel.js";
 import {showSpinner, hiddeSpinner} from "../utils/spinnerFunctions.js";
 import { builProductDetailView } from "./productDetailView.js";
 import { decodeToken } from "../utils/decodeToken.js";
-import { pubSub } from "../utils/pubSubPattern.js"
+import { pubSub } from "../utils/pubSubPattern.js";
 
 export async function productDetailController(productDetailSectionElement){
 

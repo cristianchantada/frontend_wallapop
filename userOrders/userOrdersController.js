@@ -1,5 +1,5 @@
+import {buildIdentificationView} from "./userOrdersView.js";
 import {decodeToken} from "../utils/decodeToken.js";
-import {buildIdentificationView} from "./userOrdersView.js"
 
 export function userOrdersController(userOrdersSectionElement){
 

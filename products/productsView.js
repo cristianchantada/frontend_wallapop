@@ -14,11 +14,11 @@ export function buildProductsView(product){
 export function buildZeroProductsView(){
     return `<p>No exiten productos que ofrecerte</p>
     <p>Pero puedes publicar tú una oferta.</p>
-    `
+    `;
 }
 
 export function buildErrorView(){
     return `<p>Se ha producido un error en la carga de los anuncios</p>
     <p>Por favor, inténtelo más tarde</p>
-    `  
+    `;  
 }

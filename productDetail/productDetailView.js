@@ -1,6 +1,6 @@
 
 export function builProductDetailView( productDetail) {
-    return`
+    return `
         <div id="div-detail">
             <p><span>${productDetail.operation}</span><span>${productDetail.name}</span></p>
             <p>${productDetail.description}</p>
