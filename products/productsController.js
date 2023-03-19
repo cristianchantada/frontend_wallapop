@@ -5,10 +5,15 @@ import {pubSub} from "../utils/pubSubPattern.js";
 export async function productsController(productsSectionElement){
     
     let productsList = [];
+    const spinnerPaintEvent = new CustomEvent("weNeedSpinner");
+    const spinnerHiddeEvent = new CustomEvent("weNeedHiddeSpinner");
+
+    productsSectionElement.dispatchEvent(spinnerPaintEvent);
 
     try {
-        pubSub.publish(pubSub.TOPICS.PAINT_SPINNER);
+        
         productsList = await getProducts(productsList);
+
         if(productsList.length > 0){
             paintTweets(productsSectionElement, productsList);
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, `Anuncios cargados con éxito; encontrados: ${productsList.length}`);
@@ -16,11 +21,14 @@ export async function productsController(productsSectionElement){
             pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Nadie publica anuncios en esta página; por favor publica algo.");
             paintZeroProducts(productsSectionElement);
         }
+
     } catch (error) {
         pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, "Algo ha ido mal, o muy mal.");
         paintErrorView(productsSectionElement);
     }
-        pubSub.publish(pubSub.TOPICS.HIDDE_SPINNER);
+
+    productsSectionElement.dispatchEvent(spinnerHiddeEvent);
+
 }
 
 function paintTweets(productsSectionElement, productsList ){

@@ -6,15 +6,14 @@ export function createProduct(createProductFormElement){
     const token = localStorage.getItem('token');
 
     if(!token){
-        alert("Usted no está logueado en la web. Inicie sesión para poder publicar un anuncio");
         window.location = "/";
+        alert("Usted no está logueado en la web. Inicie sesión para poder publicar un anuncio");
     }
 
     createProductFormElement.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const formData = new FormData(createProductFormElement);
-        
         const productTitle = formData.get("productTitle");
         const productDescription = formData.get("product-description");
         const productPrize = formData.get("prize");

@@ -32,6 +32,8 @@ export function signUpController(signUpFormElement){
                 } catch (error) {
                     pubSub.publish(pubSub.TOPICS.PRODUCT_NOTIFICATION, error.message);
                     alert(error.message);
+                    formData.reset();
+                    window.location.reload();
                 }
             }
         }
